@@ -46,5 +46,5 @@ The following procedure has been tested in a docker container running ubuntu 20.
    * **webdir** is any directory of the webserver
 4. modify the **sim_dir** parameter in demo/config.php  to point to "yourpath"/eurecat/Simulations
 
-## Interface the simulator
+### Interface the simulator
    To be done
