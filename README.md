@@ -11,9 +11,9 @@ The following procedure has been tested in a docker container running ubuntu 20.
 2. move the git repository to the document root of the web server
 
 3. In /etc/apache2/apache2.conf for *DocumentRoot*, change  
-   > Allow override None 
+   **Allow override None** 
    to 
-   >Allow override All 
+   **Allow override All**
    This is necessary to enable *.htaccess* in demo/data folder, to execute php code .xml files. 
 
 4. Create the mysql database that containes users' profiles.
