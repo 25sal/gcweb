@@ -1,0 +1,143 @@
+<html><head>
+	
+
+</head>
+
+<body>
+<table>
+<tr><td>Sim01</td>
+<td><div id="status" class="statusdisabled"></div></td>
+<td><button id="start" class="startenabled"></button></td>
+<td><button id="stop" class="stopdisabled"></button></td>
+</tr></table>
+<table>
+<tr><th>Simulation Progress</th><th></th></tr>	
+<tr><td><div id="log">0 %</div></td><td><div id="bar" class="barreset"></div></td></tr>
+</table>
+
+<table>
+<tr><th>Time Progress</th><th></th></tr>	
+<tr><td><div id="timelog">00:00</div></div></td><td><div id="timebar" class="barreset"></div></td></tr>
+</table>
+
+</body>
+<script>
+$(document).ready(function() {
+    var maxWidth = 400;
+    var duration = 3000;
+    var $log = $('#log');
+    var $start = $('#start');
+    var $stop = $('#stop');
+	var $status = $('#status');
+	//setInterval('checkstatus()',5000);
+	
+    var timer;
+    var simulation="stopped";
+    $stop.attr('disabled', true);
+    
+    $start.on('click', function() {
+	  
+		$start.toggleClass("startdisabled");
+		
+	
+		
+		if (simulation==="stopped" || simulation==="paused"){
+		if (simulation==="stopped") 
+		   start_simulator();
+		   $status.toggleClass("statusenabled");
+			  
+		
+			   
+			$stop.addClass("stopdisabled");
+			$stop.removeClass("stopenabled");
+			simulation="running";
+			$stop.attr('disabled', true);
+			var $bar = $('#bar');
+			Horloge(maxWidth);
+			timer = setInterval('Horloge('+maxWidth+')', 100);
+		  
+
+			$bar.animate({
+				width: maxWidth
+			}, duration, function() {
+				$(this).css('background-color', 'green');
+				$start.attr('disabled', true);
+				//$stop.attr('disabled', true);
+				$log.html('100 %');
+				clearInterval(timer);
+				$stop.attr('disabled', false);
+				$stop.addClass("stopenabled");
+				$stop.removeClass("stopedisabled");
+			});
+	   }
+	   else{
+		    simulation="paused"
+		    clearInterval(timer);
+			var $bar = $('#bar');
+			$bar.stop();
+		
+			var w = $bar.width();
+			var percent = parseInt((w * 100) / maxWidth);
+			$log.html(percent + ' %');
+		    $stop.attr('disabled', false);
+		    $stop.addClass("stopenabled");
+			$stop.removeClass("stopedisabled");
+		   
+		   
+		   }
+    });
+
+    $stop.on('click', function() {
+		
+		stop_simulator();
+		update_status(0);
+		
+	
+    });
+
+});
+
+function update_status(status)
+{
+  if(status == 0)
+  {
+	//clearInterval(timer);
+	simulation="stopped";
+    $start.addClass("startenabled");
+	$start.removeClass("startdisabled");
+	$stop.addClass("stopdisabled");
+	$stop.removeClass("stopenabled");
+	$status.toggleClass("statusenabled");
+	$log.html('0 %');
+	$stop.attr('disabled', true);
+	$start.attr('disabled', false);
+	var $bar = $('#bar');
+	$bar.css('background-color', 'yellow');
+	$bar.css('width', '0px');
+  }
+  else if (status ==1)
+  {
+			$status.addClass("statusenabled");
+			$status.removeClass("statusdisabled");  
+  }
+
+}
+
+function checkstatus()
+{
+	var $status = $('#status');
+	//console.log("checking status");
+	simulation_status($status);
+
+
+}
+
+function Horloge(maxWidth) {
+    var w = $('#bar').width();
+    var percent = parseInt((w * 100) / maxWidth);
+    $('#log').html(percent + ' %');
+}
+
+
+</script>
+</html>

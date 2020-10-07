@@ -1,0 +1,75 @@
+<html><head>
+	
+
+</head>
+
+<body>
+<table>
+<tr><td>Sim01</td>
+<td><div id="status" class="statusdisabled"></div></td>
+<td><button id="start" class="startenabled"></button></td>
+<td><button id="stop" class="stopdisabled"></button></td>
+</tr></table>
+<table>
+<tr><th>Simulation Progress</th><th></th></tr>	
+<tr><td><div id="log">0 %</div></td><td><div id="bar" class="barreset"></div></td></tr>
+</table>
+
+<table>
+<tr><th>Time Progress</th><th></th></tr>	
+<tr><td><div id="timelog">00:00</div></div></td><td><div id="timebar" class="barreset"></div></td></tr>
+</table>
+
+</body>
+<script>
+$(document).ready(function() {
+    var maxWidth = 400;
+    var duration = 3000;
+    var $log = $('#log');
+    var $start = $('#start');
+    var $stop = $('#stop');
+	  var $status = $('#status');
+    $start.removeClass("startenabled");
+    $start.addClass("startdisabled");
+
+
+    //disable all buttons
+	//setInterval('checkstatus()',5000);
+	
+    var timer;
+    var simulation="stopped";
+    $stop.attr('disabled', true);
+    $start.attr('disabled', true);
+
+    
+    $start.on('click', function() {
+        $start.attr('disabled', true);
+        $start.removeClass("startenabled");
+	    $start.addClass("startdisabled");
+		start_simulator(); 
+    });
+
+    $stop.on('click', function() {
+		$stop.addClass("stopdisabled");
+	    $stop.removeClass("stopenabled");
+        stop_simulator();
+        $stop.attr('disabled', true);
+    });
+
+});
+
+
+
+function checkstatus()
+{
+	var $status = $('#status');
+	//console.log("checking status");
+	simulation_status($status);
+
+
+}
+
+
+
+</script>
+</html>

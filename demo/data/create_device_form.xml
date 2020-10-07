@@ -1,0 +1,93 @@
+<?php
+header('Content-Type: application/xml');
+include("../config.php");
+session_start();
+$db =new SQLite3($confdir."/rdata.sqlite");
+$dev_type = explode("_", $_GET["devtype"])[0];
+$query = 'select name from class where id='.$dev_type;
+
+$res = $db->query($query);
+$row = $res->fetchArray();
+$devtype = $row[0];
+
+$query='select individual.* from individual, class  where  individual.class=class.name and class.id='.$dev_type;
+$res = $db->query($query);
+
+
+
+?>
+<items>
+	<?php
+	   if(!isset($_GET["devid"]))
+	{
+	echo '<item type="settings" position="label-left" labelWidth="130" inputWidth="150" noteWidth="150"/>';
+	echo '<item type="fieldset" name="indlist" inputWidth="370" label="'.$devtype.'">';
+	echo '<item type="select" name="individual" label="Individual:">';
+	echo '<option value="0" label="----"/>';
+		
+            
+			 
+			 	$selected='';
+				if(isset($_GET["devid"]) && ($_GET["devid"]==$row['id']))
+							$selected='selected="true"';
+                echo '<option value="new" label="new" '.$selected.' />';
+                while ($row = $res->fetchArray()) {
+					$selected='';
+					 if(isset($_GET["devid"]) && ($_GET["devid"]==$row['id']))
+							$selected='selected="true"';
+        
+				echo '<option value="'.$row['id'].'" label="'.$row["class"].$row["id"].'-'.$row["pilot"].'-'.$row["mmodel"].'" '.$selected.' />';
+				}
+				echo '</item>';
+		}else
+			  
+				if(isset($_GET["devid"]))
+				{
+					echo '<item type="fieldset" name="data" inputWidth="370" label="data">';
+	
+
+					if(!strcmp($_GET["devid"],"new"))
+					{
+						$query = 'select sim_par from simulation_required where dev_type="'.$devtype.'";';
+
+
+						$res = $db->query($query);
+				
+						while ($row = $res->fetchArray()) 
+
+					   	 echo '<item type="input" name="'.$row[0].'" label="'.$row[0].'" inputWidth="auto" />';
+					
+
+
+					}
+					else{
+					$query = 'select sim_par, value from simulation_required, individual_parameters where rd_par=name and  individual='.$_GET["devid"].' and dev_type="'.$devtype.'";';
+
+
+					$res = $db->query($query);
+				
+					while ($row = $res->fetchArray()) {
+
+					    echo '<item type="input" name="'.$row[0].'" label="'.$row[0].'" inputWidth="auto" value="'.$row[1].'"/>';
+					}
+
+					$query = 'select distinct  sim_par from simulation_required  where dev_type="'.$devtype.'" and (rd_par not  in (select name from individual_parameters where individual='.$_GET["devid"].') or rd_par is NULL);';
+
+					$res = $db->query($query);
+					while ($row = $res->fetchArray()) {
+
+						echo '<item type="input" name="'.$row[0].'" label="'.$row[0].'" inputWidth="auto"/>';
+				
+						}
+					}//else not new
+				
+				echo '<item type="hidden" name="type" value="'.explode("_", $_GET["devtype"])[1].'"/>';			
+				echo '<item type="button" name="add" label="add"  value="add"/>';
+				echo '</item>';
+			
+				}//if(isset devid)
+	  if(!isset($_GET["devid"])) echo 	'</item>';	
+                ?>
+		
+	
+</items>

@@ -1,0 +1,54 @@
+<html>
+<head>
+<!--https://dhtmlx.com/docs/products/visualDesigner/live/#g40o46-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="../dhtmlx/codebase/fonts/font_roboto/roboto.css"/>
+	<link rel="stylesheet" type="text/css" href="../dhtmlx/codebase/dhtmlx.css"/>
+		<link rel="stylesheet" type="text/css" href="../dhtmlx/skins/skyblue/dhtmlx.css"/>
+	<link rel="stylesheet" type="text/css" href="../dhtmlx/skins/web/dhtmlx.css"/>
+	<link rel="stylesheet" type="text/css" href="../dhtmlx/skins/terrace/dhtmlx.css"/>
+	<link rel="stylesheet" type="text/css" href="../codebase/greencharge.css"/>
+	<script src="../dhtmlx/codebase/dhtmlx.js"></script>
+	
+	
+	<style>
+		div#layoutObj {
+			position: relative;
+			margin-top: 0px;
+			margin-left: 10px;
+			width: 1600px;
+			height: 1000px;
+		}
+	</style>
+	
+
+</head>
+<body>
+	<body onload="doOnLoad();">
+	<div id="layoutObj"></div>
+
+<script>
+ 
+
+ function doOnLoad() {	
+ 	window.dhx4.skin = 'dhx_web';
+	var main_layout = new dhtmlXLayoutObject(document.body, '1C');
+
+	var a = main_layout.cells('a');
+	a.setText("LogType: GridMix");
+	var grid_1 = a.attachGrid();
+	grid_1.setIconsPath('../codebase/imgs/');
+	
+	grid_1.setHeader(["file","filename check", "content check"]);
+	grid_1.setColTypes("ro,ro,ro");
+	
+	grid_1.setColSorting('str,str,str');
+	grid_1.setInitWidths('*,*,*');
+	grid_1.init();
+	grid_1.load('gridmix.xml', 'xml');
+
+}
+</script>
+</body>
+</html>

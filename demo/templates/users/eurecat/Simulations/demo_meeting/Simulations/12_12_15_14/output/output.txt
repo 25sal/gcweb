@@ -1,0 +1,4 @@
+{"message" : {"subject" : "createbackground","type" : "PV","id" : "[0]:[2]"}}
+{"message" : {"subject" : "createbackground","type" : "PV","id" : "[2]:[4]"}}
+{"message" : {"subject" : "CREATE_PRODUCER","type" : "PV","id" : "[1]:[1]", "profile": " 6_run_3_1_eout.csv "}}
+{"message" : {"subject" : "EV_BOOKING" , "capacity" : " 23 " , "max_ch_pow_ac" : " 33 " , "max_ch_pow_cc" : " 33 " , "max_all_en" : " 0 " , "min_all_en" : " 0 " , "sb_ch" : " 0.0 " , "ch_eff" :  " 0.0 " , "soc_at_arrival": " 0 " , "planned_departure_time" : " 1449878400 " , "arrival_time" : " 1449878400 " , "v2g" : " 0 " , "target_soc" : " 0 " }}

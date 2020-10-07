@@ -1,0 +1,10 @@
+{
+    "require": {
+        "supervisorphp/supervisor": "^3.0",
+        "guzzlehttp/guzzle": "^6.5",
+        "lstrojny/fxmlrpc": "^0.15.0",
+        "php-http/guzzle6-adapter": "^2.0",
+        "php-http/message": "^1.8",
+        "zendframework/zend-diactoros": "^2.2"
+    }
+}

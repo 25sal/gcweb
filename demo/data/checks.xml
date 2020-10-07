@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+<row id="1">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20200201T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 99.60178400764532</cell>
+</row>
+<row id="2">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20190301T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 99.21349164334856</cell>
+</row>
+<row id="3">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20190901T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 99.69213546039754</cell>
+</row>
+<row id="4">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20190801T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 99.09682080924804</cell>
+</row>
+<row id="5">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20200501T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 99.47693770803698</cell>
+</row>
+<row id="6">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20190701T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 99.29121725731937</cell>
+</row>
+<row id="7">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20190601T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 99.17982989064312</cell>
+</row>
+<row id="8">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20191201T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 99.27797833934997</cell>
+</row>
+<row id="9">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20191001T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 99.43586698337323</cell>
+</row>
+<row id="10">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20190101T001500-ECHAR-PG-MIX.csv</cell>
+<cell style="color:red">
+Logtype "ECHAR" Not found</cell>
+</row>
+<row id="11">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20200801T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 99.34240362811796</cell>
+</row>
+<row id="12">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20190501T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 99.24982417754062</cell>
+</row>
+<row id="13">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20200601T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 99.47857628655609</cell>
+</row>
+<row id="14">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20190201T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 99.62976022567086</cell>
+</row>
+<row id="15">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20200701T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 99.55301713434292</cell>
+</row>
+<row id="16">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20191101T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 99.41418962898757</cell>
+</row>
+<row id="17">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20200301T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 99.62951030927908</cell>
+</row>
+<row id="18">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20200401T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 99.2734670154037</cell>
+</row>
+<row id="19">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20200101T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 98.9612465041955</cell>
+</row>
+<row id="20">
+<cell>/recordings_logs/energy_characteristics/grid_mix/LOG-BRE-D1-ALL-20190401T001500-ENCHAR-PG-MIX.csv</cell>
+<cell style="color:green"> ok </cell>
+<cell style="color:red">
+warning: sum of grid_mix is not 100: 99.67543444451958</cell>
+</row>
+</rows>

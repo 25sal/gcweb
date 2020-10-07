@@ -1,0 +1,58 @@
+body {
+ margin:10px;   
+}
+td {
+	text-align: left;
+}
+.barreset {
+    width:0px;
+    height:25px;
+    border:1px solid black;
+    background-color:yellow;
+    border-radius:3px;
+}
+
+
+.statusdisabled {
+    background-image: url( 'images/RecordDisabled.png' );
+    background-size: 30px 30px;
+    height: 30px;  
+    width: 30px;
+}
+
+
+.statusenabled {
+    background-image: url( 'images/RecordHot.png' );
+    background-size: 30px 30px;
+    height: 30px;  
+    width: 30px;
+}
+
+.startenabled {
+    background-image: url( 'images/StepForwardNormal.png' );
+    background-size: 30px 30px;
+    height: 30px;  
+    width: 30px;
+}
+
+.startdisabled {
+    background-image: url( 'images/StepForwardDisabled.png' );
+    background-size: 30px 30px;
+    height: 30px;  
+    width: 30px;
+}
+
+.stopdisabled {
+    background-image: url( 'images/Stop1Disabled.png' );
+    background-size: 30px 30px;
+    height: 30px;  
+    width: 30px;
+}
+
+.stopenabled {
+    background-image: url( 'images/Stop1Normal.png' );
+    background-size: 30px 30px;
+    height: 30px;  
+    width: 30px;
+}
+

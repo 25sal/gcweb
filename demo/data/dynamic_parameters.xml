@@ -1,0 +1,40 @@
+<?php 
+  header('Content-Type: application/xml');
+  session_start();
+  include("../config.php");
+  $data = yaml_parse_file($_SESSION["workingdir"]."/config.yml");
+
+  ?>
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+	<head>
+		<column width="80" type="ro" align="left" sort="str">Property</column>
+		<column width="*" type="ro" align="left" sort="int">Value</column>
+	</head>
+    <?php 
+
+     if(isset($_GET['devid'])&&isset($_GET['devtype'])){
+      $db = new SQLite3($data['config']['simulation_dir']."/".$data['config']['simulation']."/db.sqlite");
+      if(!strcmp($_GET['devtype'],"device")){
+        $results = $db->query('SELECT key,val from dinamicParameter where idDevice='.$_GET['devid']);
+        $i=0;
+        while ($row = $results->fetchArray()) {
+	    
+        
+        
+            echo '<row id="'.$i.'">';
+	        echo '<cell>'.$row['key'].'</cell>';
+            echo '<cell>'.$row['val'].'</cell>';
+            echo '</row>';      
+        
+        $i = $i+1;
+      
+	
+        }
+      }
+
+    $db->close();
+     }
+	?>
+
+</rows>

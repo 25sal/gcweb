@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Neighborhood>
+  <house id="0">
+    <user id="0">
+      <heatercooler>
+        <id>2</id>
+        <profile>1_run_5_1_ein.csv </profile>
+      </heatercooler>
+    </user>
+  </house>
+  <house id="1">
+    <user id="0">
+      <device>
+        <id>1</id>
+        <est>0</est>
+        <lst>0</lst>
+        <type>load</type>
+        <creation_time>0</creation_time>
+        <profile>6_run_3_1_eout.csv </profile>
+      </device>
+    </user>
+  </house>
+  <house id="2">
+    <user id="0">
+      <backgroundload>
+        <id>4</id>
+        <profile>0_run_6_1.csv </profile>
+      </backgroundload>
+    </user>
+  </house>
+  <house id="3">
+    <user id="0">
+      <ecar>
+        <id>3</id>
+        <pat>0</pat>
+        <pdt>0</pdt>
+        <aat>0</aat>
+        <adt>0</adt>
+        <creation_time>0</creation_time>
+        <soc>0</soc>
+        <targetSoc>0</targetSoc>
+        <V2G>0</V2G>
+        <priority>0</priority>
+      </ecar>
+    </user>
+  </house>
+  <house id="4">
+    <user id="0">
+      <device>
+        <id>2</id>
+        <est>0</est>
+        <lst>0</lst>
+        <type>load</type>
+        <creation_time>0</creation_time>
+        <profile>2_run_4_1_ein.csv </profile>
+      </device>
+    </user>
+  </house>
+</Neighborhood>

@@ -1,0 +1,70 @@
+<?php 
+  header('Content-Type: application/json');
+  session_start();
+  $data = yaml_parse_file($_SESSION["workingdir"]."/config.yml");
+  $simdir= $data['config']['simulation_dir'];
+
+
+ echo "[";
+ $sims = scandir($simdir);
+
+ $coma="";
+ foreach( $sims as $sim){
+
+	 if (is_file($sim))
+	  $type= "false";
+	else 
+	  $type= "true";
+	 if (!in_array(basename($sim),array(".","..")))
+	 {
+		 
+		 echo $coma.'{"title":"'.$sim.'", "folder":'.$type;
+		 $coma=",";
+
+		 $dates = scandir($simdir."/".$sim."/Simulations");
+	
+
+    
+		 if(count($dates)>2)
+         {  echo ', "children": [';
+		 $first="";
+		  $date_groups =[];
+		 foreach($dates as $date) {
+
+			  if (!in_array(basename($date),array(".","..")))
+			 {		
+				 $tokens=explode("_", $date);
+				 if(count($tokens)==4)
+				   if(!array_key_exists("date:".$tokens[0]."/".$tokens[1]."/".$tokens[2],$date_groups))
+				     $date_groups["date:".$tokens[0]."/".$tokens[1]."/".$tokens[2]]=[$tokens[3]];
+				   else
+				     $date_groups["date:".$tokens[0]."/".$tokens[1]."/".$tokens[2]][]=$tokens[3];
+
+				  
+				 
+				 }
+		 
+		 }
+		 foreach($date_groups as $key=>$array_id) {
+
+		 echo $first.'{"title": "'.$key.'", "folder": true, "children":[';
+		 		 $comaid="";
+		 		 foreach($array_id as $id)
+				    {
+						 echo $comaid.' {"title":"'.$id.'", "folder":false}'; $comaid=",";
+					}
+					echo "]}";
+
+				 $first=",";
+
+		 }
+		 echo "]";
+		 }
+		 
+		    echo "}";
+	 }
+	
+ } 
+  echo "]";
+
+?>

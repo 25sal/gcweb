@@ -1,0 +1,26 @@
+<?php 
+  header('Content-Type: application/xml');
+?>
+<?xml version="1.0" encoding="iso-8859-1"?>
+<tree>
+<item id="0"  text="Household [1]" open="1">
+	 <icons          
+            folder_opened="dhxtreeview_web_icon_household"
+            folder_closed="dhxtreeview_web_icon_household"/>
+     <userdata type="household" id="1"/>
+<item id="1"  text="PV Panel [1]:[1]">
+	 <icons  file="dhxtreeview_web_icon_producer"/>
+    <userdata type="device" id="1"/>
+</item>	
+<item id="2" text="WashingMachine [1]:[2]">
+ <icons  file="dhxtreeview_web_icon_consumer"/>
+ </item>	
+<item id="3" text="Air Conditioner [1]:[3]">
+ <icons  file="dhxtreeview_web_icon_consumer"/>
+ </item>	
+<item id="4" text="EV [1]:[4]">
+ <icons  file="dhxtreeview_web_icon_consumer"/>
+  </item>
+</item>
+</tree>
+

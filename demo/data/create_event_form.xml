@@ -1,0 +1,127 @@
+<?php
+header('Content-Type: application/xml');
+include("../config.php");
+session_start();
+$db =new SQLite3($confdir."/rdata.sqlite");
+$query = 'select name from event_type where id='.$_GET["evtype"];
+$res = $db->query($query);
+$row = $res->fetchArray();
+$evtype = $row[0];
+
+$query='select events.* from events, event_type  where  events.etype=event_type.name and event_type.id='.$_GET["evtype"];
+$query = 'select id, profile from event_profile where etype='.$_GET["evtype"];
+$res = $db->query($query);
+
+
+
+?>
+<items>
+	<?php
+	   if(!isset($_GET["profid"]))
+	{
+	echo '<item type="settings" position="label-left" labelWidth="130" inputWidth="150" noteWidth="150"/>';
+	echo '<item type="fieldset" name="indlist" inputWidth="370" label="'.$evtype.'">';
+	echo '<item type="select" name="event" label="Event:">';
+	echo '<option value="0" label="----"/>';
+		
+            
+			 
+			 	$selected='';
+				if(isset($_GET["profid"]) && ($_GET["profid"]==$row['id']))
+							$selected='selected="true"';
+                echo '<option value="manual" label="manual" '.$selected.' />';
+                while ($row = $res->fetchArray()) {
+					$selected='';
+					 if(isset($_GET["profid"]) && ($_GET["eevid"]==$row['id']))
+							$selected='selected="true"';
+        
+				echo '<option value="'.$row['id'].'" label="'.$row["profile"].'" '.$selected.' />';
+				}
+				echo '</item>';
+		}else
+			  
+				if(isset($_GET["profid"]))
+				{
+					
+					if(!strcmp($_GET["profid"],"manual"))
+					{
+					/*
+						echo '<item type="fieldset" name="saved_profiles" inputWidth="370" label="saved">';
+						echo '<item type="select" name="profile" label="Profile:">';
+						echo '<option value="0" label="----"/>';
+				
+					    $query = 'select * from charge_profiles where type=1';
+						$res = $db->query($query);
+						while ($row = $res->fetchArray()) {
+						echo '<option value="'.$row['id'].'" label="'.$row['pilot'].'-'.$row['name'].'"/>';
+						}
+					  
+						echo '</item>';
+						echo '<item type="button" name="load" label="load"  value="load"/>';
+						echo '</item>';
+					*/
+						echo '<item type="fieldset" name="data" inputWidth="370" label="data">';
+	
+
+					  if(!isset($_GET["inst"]))
+					  {
+						$query = 'select sim_par from event_required_pars where ev_type='.$_GET["evtype"].';';
+                        $res = $db->query($query);
+						while ($row = $res->fetchArray()) 
+						{
+						  if (!strcmp($row[0],"ID"))
+						  	echo '<item type="input" name="'.$row[0].'" label="'.$row[0].'" value="'.$_GET["id"].'" inputWidth="auto" readonly="true" />';
+						  else if (!strcmp($row[0],"PROFILE"))
+						    {
+							  echo '<item type="select" name="timeseries" label="TIMESERIES:">';
+							  echo '<option value="0" label="----"/>';
+							  $query = 'select * from timeseries where type='.$_GET["evtype"];
+							  $res2 = $db->query($query);
+							  while ($row2 = $res2->fetchArray()) 
+						        echo '<option value="'.$row2['name'].'" label="'.$row2['name'].'"/>';
+							  echo '</item>';
+
+							}
+						  else 
+					   	  	echo '<item type="input" name="'.$row[0].'" label="'.$row[0].'" inputWidth="auto" />';
+						}
+					
+
+
+					  }
+					
+					else{
+					 $query = 'select sim_par, value from event_required_pars, events_parameters where rd_par=name and   events_parameters.id='.$_GET["inst"].' and ev_type="'.$evtype.'";';
+
+
+					  $res = $db->query($query);
+				
+					  while ($row = $res->fetchArray()) {
+
+					    echo '<item type="input" name="'.$row[0].'" label="'.$row[0].'" inputWidth="auto" value="'.$row[1].'"/>';
+					}
+
+					$query = 'select  sim_par from event_required_pars  where ev_type="'.$evtype.'" and rd_par not  in (select name from event_parameters where event_parameters.id='.$_GET["inst"].');';
+
+					$res = $db->query($query);
+					while ($row = $res->fetchArray()) {
+
+						echo '<item type="input" name="'.$row[0].'" label="'.$row[0].'" inputWidth="auto"/>';
+				
+						}
+					}//else not new
+				 }
+				else if(!strcmp($_GET["profid"],"3")){
+					echo '<item type="fieldset" name="statisticmodel" inputWidth="370" label="statistic">';
+
+
+					}
+				echo '<item type="button" name="add" label="add"  value="add"/>';
+				echo '</item>';
+			
+				}//if(isset devid)
+	  if(!isset($_GET["profid"])) echo 	'</item>';	
+                ?>
+		
+	
+</items>

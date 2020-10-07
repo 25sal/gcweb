@@ -1,0 +1,2 @@
+{"message" : {"subject" : "HC","id" : "[1]:[2]","profile" : "http://parsec2.unicampania.it/~gcdemo//Simulations/testbdm/12_12_15_29/1_run_5_1.csv "}}
+{"message" : {"subject" : "BG","id" : "[4]:[1]","profile" : "http://parsec2.unicampania.it/~gcdemo//Simulations/testbdm/12_12_15_29/0_run_6_1.csv "}}

@@ -1,0 +1,65 @@
+<?php 
+  header('Content-Type: application/xml');
+
+  function sim_subtree($dir, $index){
+    
+    
+
+    $allfiles = $outfiles = glob($dir."/*");
+    if(count($allfiles)>0){
+      $index+=1;
+      $mysubtree='<item id="'.$index.'" text="'.basename($dir).'">';
+      $mysubtree=$mysubtree.'<userdata filename="'.$dir.'" />';
+    
+    
+        foreach($allfiles as $filename)
+        {
+          if(is_dir($filename))
+            {
+              $subtree = sim_subtree($filename,$index);
+              $mysubtree=$mysubtree.$subtree['items'];
+              $index=$subtree['index'];
+
+            }
+          else
+          { 
+            $index+=1;
+            $mysubtree=$mysubtree.'<item id="'.$index.'" text="'.basename($filename).'">';
+            $mysubtree=$mysubtree.'<userdata filename="'.$filename.'" />';
+            $mysubtree=$mysubtree.'</item>';
+          }
+
+          
+    }       
+    $mysubtree=$mysubtree.'</item>';
+  }
+    return ['items'=>$mysubtree,'index'=>$index];
+
+  }
+
+  session_start();
+   $data = yaml_parse_file($_SESSION["workingdir"]."/config.yml");
+  $simdir= $data['config']['simulation_dir'];
+  $instance= $_SESSION["current_sim_view"];
+
+$folders =explode("/",$instance);
+
+$input= $simdir."/Simulations/".$folders[1]."/input"
+ 
+?>
+<?xml version="1.0" encoding="iso-8859-1"?>
+<tree>
+  <?php
+
+    $output= $simdir."/".$folders[0]."/Simulations/".$folders[1]."/output";
+    $subtree=sim_subtree($output,$i);
+    echo $subtree['items'];
+    $output= $simdir."/".$folders[0]."/Simulations/".$folders[1]."/inputs";
+    $subtree=sim_subtree($output,$subtree['index']);
+    echo $subtree['items'];
+ 
+    
+?>
+ 
+		</tree>
+

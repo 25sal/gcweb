@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+	<head>
+		<column width="80" type="ro" align="left" sort="str">Property</column>
+		<column width="*" type="ro" align="left" sort="int">Value</column>
+	</head>
+	<row id="1">
+		<cell>Title</cell>
+		<cell>Number of EVs</cell>
+	</row>
+	<row id="2">
+		<cell>Category</cell>
+		<cell>Transport system  </cell>
+	</row>
+	<row id="3">
+		<cell>Dashboard </cell>
+		<cell>http://greencharg.eu/dashboard/d5_1.1.php </cell>
+	</row>
+	<row id="4">
+		<cell>Data source </cell>
+		<cell>http://greencharg.eu/dashboard/d5_1.1.csv </cell>
+	</row>
+	
+
+</rows>

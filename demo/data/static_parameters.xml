@@ -1,0 +1,38 @@
+<?php 
+  header('Content-Type: application/xml');
+  session_start();
+  include("../config.php");
+  $data = yaml_parse_file($_SESSION["workingdir"]."/config.yml");
+  ?>
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+	<head>
+		<column width="80" type="ro" align="left" sort="str" name="prop">Property</column>
+		<column width="*" type="ed" align="left" sort="str">Value</column>
+	</head>
+    <?php 
+    if(isset($_GET['devid'])){
+     $db = new SQLite3($data['config']['simulation_dir']."/".$data['config']['simulation']."/db.sqlite");
+       
+      $results = $db->query('SELECT id,key,val from staticParameter where idDevice='.$_GET['devid']);
+      $i=0;
+      if($results)
+      while ($row = $results->fetchArray()) {
+    
+      
+      
+            echo '<row id="'.$row['id'].'">';
+	        echo '<cell>'.$row['key'].'</cell>';
+            echo '<cell>'.$row['val'].'</cell>';
+            echo '</row>';      
+        
+        $i = $i+1;
+         }
+	
+      
+    $db->close();
+        }
+    
+	?>
+
+</rows>

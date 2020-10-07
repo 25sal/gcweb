@@ -1,0 +1,21 @@
+<?php 
+  header('Content-Type: application/xml');
+?>
+<?xml version="1.0" encoding="UTF-8"?>
+<toolbar>
+	<item id="new" type="buttonSelect" img="../imgs_menu/new.gif" imgdis="../imgs_menu/new_dis.gif" text="User"
+		  action="showNewDocumentSelect">
+		<item type="button" id="new_pp" text="profile" img="../imgs_menu/user.jpeg"
+			  action="doOnNewDocument"/>
+		<item type="separator" id="new_s1"/>
+		<item type="button" id="logout" text="Logout" img="../imgs_menu/other.gif" action="doOnNewDocument"/>
+	</item>
+	<item id="conf" type="buttonSelect" img="../imgs_menu/new.gif" imgdis="../imgs_menu/new_dis.gif" text="Configuration"
+		  action="confmenu">
+		<item type="button" id="newconf" text="New" img="../imgs_menu/new.gif"
+			  action="doOnNewConf"/>
+		<item type="button" id="saveas" text="Save as ..." img="../imgs_menu/save.gif"
+			  action="saveas"/>
+	</item>
+	<item id="info" type="text" text="Greencharge Simulator Demo"/>
+</toolbar>

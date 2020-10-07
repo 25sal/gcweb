@@ -1,0 +1,29 @@
+<?php 
+  header('Content-Type: application/xml');
+  session_start();
+  $data = yaml_parse_file($_SESSION["workingdir"]."/config.yml");
+  $userjid= $data['config']['userjid'];
+  $firstchecked = '';
+  $secondchecked = '';
+  if(strcmp($data['config']['protocol'],'2.0')!=0)
+     $firstchecked='checked="true"';
+  else
+     $secondchecked ='checked="true"';
+?>
+<items>
+<item type="settings" labelWidth="130" inputWidth="350" noteWidth="250"/>
+<item type="radio" labelAlign="left" name="type" <?php echo $firstchecked; ?> value='1.0' labelWidth="auto"  label="XMPP Protocol" labelLeft="30" labelTop="10" inputLeft="10"  inputTop="10" position="absolute" >
+<item type="input" value="<?php echo $userjid.'/'.$data['config']['simulator']; ?>" label="Simulator's JID" disabled="true" inputLeft="40"  inputTop="60" position="absolute" labelLeft="10" labelTop="40" >
+<note width="150">Message Sender</note>
+</item>
+<item type="input" value="<?php echo $userjid.'/'.$data['config']['scheduler']; ?>" label="Scheduler's JID" disabled="true" inputLeft="40"  inputTop="120" position="absolute" labelLeft="10" labelTop="100" >
+<note width="150">Message Receiver</note>
+</item>
+
+</item>
+<item type="radio" name="type"  <?php echo $secondchecked; ?> value='2.0'  labelWidth="auto" inputLeft="420"  inputTop="10" position="absolute" label="HTTP Protocol" labelLeft="440" labelTop="10">
+<item type="input" value="<?php echo $data['config']['adaptor_address'].':'.$data['config']['adaptor_port']; ?>" label="address" disabled="true"  inputLeft="420"  inputTop="60" position="absolute"  labelLeft="420" labelTop="40"/>
+
+</item>
+<item type="button" name="scheduler" value="Interactive Scheduler"  inputLeft="420"  inputTop="120" position="absolute"  labelLeft="400" labelTop="100"/>
+</items>
