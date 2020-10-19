@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<neighborhood id="1" name="test">
+  <house id="0">
+    <user id="0">
+      <heatercooler>
+        <type>NS-Consumer</type>
+        <name>po</name>
+        <id>2</id>
+      </heatercooler>
+    </user>
+  </house>
+  <house id="1">
+    <user id="0">
+      <device>
+        <type>Producer</type>
+        <name>panel1</name>
+        <id>1</id>
+      </device>
+    </user>
+  </house>
+  <house id="2">
+    <user id="0">
+      <backgroundload>
+        <type>NS-Consumer</type>
+        <name>lol5</name>
+        <id>4</id>
+      </backgroundload>
+    </user>
+  </house>
+  <house id="3">
+    <user id="0">
+      <ecar>
+        <model>model2</model>
+        <capacity>23</capacity>
+        <maxchpowac>33</maxchpowac>
+        <maxchpowcc>33</maxchpowcc>
+        <maxdispow>44</maxdispow>
+        <maxallen>0</maxallen>
+        <minallen>0</minallen>
+        <sbch>0.0</sbch>
+        <sbdis>0.0</sbdis>
+        <cheff>0.0</cheff>
+        <dis_eff>0.0</dis_eff>
+        <type>Prosumer</type>
+        <name>autoMIa</name>
+        <id>3</id>
+      </ecar>
+    </user>
+  </house>
+  <house id="4">
+    <user id="0">
+      <device>
+        <type>Consumer</type>
+        <name>prova2</name>
+        <id>2</id>
+      </device>
+    </user>
+  </house>
+</neighborhood>

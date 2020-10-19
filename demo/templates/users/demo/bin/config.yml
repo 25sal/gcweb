@@ -1,0 +1,16 @@
+---
+config:
+  adaptor_port: 10010
+  adaptor: adaptor
+  simulator: taskmanager
+  scheduler: actormanager
+  adaptor_address: greencharge.local
+  workingdir: /root/users/demo/bin
+  userjid: demo@greencharge.local
+  simulation: provasim
+  simulation_dir: /root/users/demo/Simulations
+  protocol: "1.0"
+  date: 12/12/15
+  xmpp_password: greencharge
+  webdir: /var/www/html/Simulations
+...
