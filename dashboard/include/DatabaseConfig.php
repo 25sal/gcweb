@@ -1,6 +1,6 @@
 <?php
    define('DBUSER','gcsimulator');
-   define('DBPWD','password');
+   define('DBPWD','gcsimulator');
    define('DBHOST','localhost');
    define('DBNAME','gcsimulator_ui');
 

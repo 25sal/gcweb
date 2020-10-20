@@ -1,5 +1,0 @@
-{
-    "require": {
-        "supervisorphp/supervisor": "^3.0"
-    }
-}

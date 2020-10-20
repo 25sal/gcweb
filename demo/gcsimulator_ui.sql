@@ -15,6 +15,12 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+CREATE DATABASE gcsimulator_ui
+CREATE USER gcsimulator@localhost IDENTIFIED BY 'gcsimulator';
+GRANT ALL PRIVILEGES ON gcsimulator_ui.* TO 'gcsimulator'@'localhost';
+FLUSH PRIVILEGES;
+
+
 --
 -- Table structure for table `CSV`
 --
@@ -114,7 +120,7 @@ CREATE TABLE `simulators` (
   UNIQUE KEY `adaptorport_UNIQUE` (`adaptorport`),
   UNIQUE KEY `jid_UNIQUE` (`jid`),
   UNIQUE KEY `iduser_UNIQUE` (`iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,7 +129,7 @@ CREATE TABLE `simulators` (
 
 LOCK TABLES `simulators` WRITE;
 /*!40000 ALTER TABLE `simulators` DISABLE KEYS */;
-INSERT INTO `simulators` VALUES (1,'uio_simulator','/home/salvatore/users/uio/bin',10011,'uio@greencharge.local',11),(2,'eurecat_sim','/home/salvatore/users/eurecat/bin',10010,'eurecat@greencharge.local',10);
+INSERT INTO `simulators` VALUES (1,'demo_simulator','/root/users/demo/bin',2020,'demo@greencharge.local',1);
 /*!40000 ALTER TABLE `simulators` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,7 +149,7 @@ CREATE TABLE `users` (
   `jid` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,7 +158,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'dariobranco94@gmail.com','$2y$10$JpAPkbZokTM2GoxkYAMb1.mDXzBYGPpcttF951NRkzrjG5omYvDHG','2020-01-24 10:39:18','0',''),(2,'dariobran4@gmail.com','$2y$10$os1DRzLzO5MRVqIoU1hH5eCl4T4AcNhy0ib.tQk9KQUFsO/FjaHQ6','2020-01-24 11:14:38','0',''),(3,'antonio@antonio.it','$2y$10$vDsdz.PxsCSFNpehgti.Qu0HVc.BtLBXxj.YeFOaRU7LhHF.RQLpS','2020-01-24 11:30:02','0',''),(4,'email@fasulla.it','$2y$10$J7h2AcvBknONbwjOx15EruYugG4VeTwyp8h/GjJFMdzRBdm5LQ14u','2020-02-13 11:04:44','0',''),(5,'salvatore.venticinque@gmail.com','$2y$10$Pi60UOGbmPDbeHC3AKhp3e/oTjd51ey..rAQ3BF/ypC1qvFRbW2f6','2020-02-13 22:33:58','0',''),(6,'adaptorprova','81030','2020-02-17 09:22:17','$2y$10$znavm8/mjM2AhlnOhhUQTu2NpJTFrZgx2NAfxtICPLLh7R8UiUTC.','prova@mail.it'),(8,'dario@prova.lit','$2y$10$h4vxvCxCZhiK95wkOvl69.KZrZHlsoFX24w8i82wps2Jtk3CJsyBS','2020-02-17 09:26:11','124','mioji'),(9,'miamail@mail.com','$2y$10$TvD5GfVbPAtpXRxGT5lM9u8mP8smnyuw6yjemEolrl1RFvFQDWoZG','2020-02-17 14:55:39','123','prova'),(10,'eurecat@greencharge.local','$2y$10$R0T.jsWKZcDUF8haD0dfKO0jnSO5NaheuEMEZB4DiZa.4VIA.tNyG','2020-02-25 16:33:49','10010','eurecat@greencharge.local'),(11,'uio@greencharge.local','$2y$10$GouIJGnUCdFynQHzqEkWke/vHFe6Ov/dBWYrxcUfkyltW6VWYdxda','2020-02-25 17:25:04','10011','uio@greencharge.local');
+INSERT INTO `users` VALUES (1,'demo@greencharge.local','$2y$10$4fPFOTM8CcC6sS4Y377yrO9L5HaoyUCkWfCiadNK8e3XYY5Z4DYl6','2020-10-16 01:10:39','2020','demo@greencharge.local');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -165,4 +171,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-07  0:51:40
+-- Dump completed on 2020-10-16  1:15:12
