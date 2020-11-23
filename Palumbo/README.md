@@ -2,7 +2,7 @@ Per la validazione di form e grid lato client si è modificato il file dashboard
 
 La validazione della grid inizia a riga 93 fino a 242
 
-La validazione della form inizia a riga 604 e fino a 771
+La validazione della form inizia a riga 604 fino a 771
 
 Il controllo dell'ID univoco all'aggiunta di un nuovo dispositivo inzia a riga 774 fino a 792
 
