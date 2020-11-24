@@ -6,7 +6,7 @@ La validazione della form inizia a riga 604 fino a 771
 
 Il controllo dell'ID univoco all'aggiunta di un nuovo dispositivo inzia a riga 774 fino a 792
 
-Per la vildazione del form lato server si è modificato il file create_device_form.xml
+Per la validazione del form lato server si è modificato il file create_device_form.xml
 
 La query è stata modificata, riga 52
 
